@@ -1,7 +1,5 @@
 local connect = require('coro-net').connect
 local split = require 'coro-split'
-local resource = require 'resource'
-local tlsOpts = {ca = resource.load("ca.pem")}
 
 require 'weblit-websocket'
 require('weblit-app')
@@ -16,7 +14,7 @@ require('weblit-app')
     local iread, iwrite = assert(connect{
       host = req.params.host,
       port = tonumber(req.params.port),
-      tls = req.params.protocol == 'tls' and tlsOpts
+      tls = req.params.protocol == 'tls'
     })
     split(function ()
       for message in read do

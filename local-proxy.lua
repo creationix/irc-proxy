@@ -4,7 +4,7 @@ local server = require('coro-net').createServer({
   port = "6667",
   host = "127.0.0.1",
 }, function (read, write)
-  local url = 'wss://proxy.creationix.com/tcp/creationix.com/6667'
+  local url = 'wss://proxy.creationix.com/tcp/localhost/6667'
   local iread, iwrite = assert(connect(url))
   split(function ()
     for chunk in read do
