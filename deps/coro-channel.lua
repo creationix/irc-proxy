@@ -53,7 +53,7 @@ local function makeRead(socket, decode, closer)
 
   local function dispatch(data)
 
-    p("<-", data[1])
+    -- p("<-", data[1])
 
     if tindex > dindex then
       local thread = queue[dindex]
@@ -137,7 +137,7 @@ local function makeWrite(socket, encode, closer)
       return nil, "already shutdown"
     end
 
-    p("->", chunk)
+    -- p("->", chunk)
 
     if chunk == nil then
       closer.written = true
